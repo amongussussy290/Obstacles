@@ -1,12 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
 {
-    float xValue = 0.01f;
-    float yValue = 0.0f;
-    float zValue = 0.0f;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +14,11 @@ public class PlayerMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(xValue, yValue, zValue);
+        float moveSpeed = 33f;
+        float xValue = Input.GetAxis("Horizontal") * Time.deltaTime;
+        float zValue = Input.GetAxis("Vertical") * Time.deltaTime;
+        
+
+        transform.Translate(xValue*moveSpeed, 0, zValue*moveSpeed);
     }
 }
